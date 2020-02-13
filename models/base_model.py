@@ -1,21 +1,23 @@
 #!/usr/bin/python3
 # First draft of #3 BaseModel
 from uuid import uuid4
-from datetime import datetime.now()
-Class BaseModel:
+from datetime import datetime
+
+
+class BaseModel:
     def __init__(self):
-        self.id = str(uuid)
-        self.created_at = datetime
-        self.updated_at = datetime
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
-        c = type(self).__name__
-        i = self.id
-        d = self.__dict__
-        print("[%s] (%s) <%s>".format(c, i, d))
+        c = str(type(self).__name__)
+        i = str(self.id)
+        d = str(self.__dict__)
+        return "[" + c + "] " + "(" + i + ") " + d
 
     def save(self):
-        self.updated_at = datetime
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         attrs = dict(self.__dict__)
