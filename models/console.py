@@ -17,7 +17,6 @@ class HBNBCommand(cmd.Cmd):
         """ End of file command to exit the program """
         if arg == 'EOF':
             self.close()
-        print()
         return True
 
 if __name__ == '__main__':
