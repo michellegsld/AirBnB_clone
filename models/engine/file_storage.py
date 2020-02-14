@@ -12,14 +12,18 @@ class FileStorage():
         return type(self).__objects
 
     def new(self, obj):
-        key = str(type(self).__name) + str(self.id)
-        __objects[key] = obj
+        key = str(type(obj).__name) + '.' + str(obj.id)
+        type(self).__objects[key] = obj
 
     def save(self):
+        temp = {}
+        temp.update(type(self).__objects)
+        for k, v in temp.items():
+            temp[k] = v.to_dict()
         with open(self.__file_path, 'w+') as fil:
-            fil.write(json.dumps(self.__objects))
+            json.dump(temp, fil)
 
     def reload(self):
-        if os.path.isfile(self.__file_path):
-            with open(self.__file_path, 'r') as fil:
-                return json.loads(fil.read())
+        if os.path.isfile((type)self.__file_path):
+            with open(self.__file_path) as fil:
+                json.load(fil)
