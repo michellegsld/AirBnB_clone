@@ -5,10 +5,16 @@ from datetime import datetime
 
 
 class BaseModel:
-    def __init__(self):
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+    def __init__(self, *args, **kwargs):
+        fmt = '%Y-%m-%dT%H:%M:%S.%f'
+        if kwargs is not None and len(kwargs) > 0:
+            kwargs['created_at'] = datetime.strptime(kwargs['created_at'], fmt)
+            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], fmt)
+            (self.__dict__).update(kwargs)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         c = str(type(self).__name__)
