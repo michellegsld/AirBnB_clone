@@ -54,7 +54,17 @@ class FileStorage:
         """
         if os.path.isfile(type(self).__file_path):
             from models.base_model import BaseModel
+            from models.user import User
+            from models.state import State
+            from models.city import City
+            from models.amenity import Amenity
+            from models.place import Place
+            from models.review import Review
+            class_names = {'BaseModel': BaseModel, 'User': User,
+                           'State': State, 'City': City, 'Amenity': Amenity,
+                           'Place': Place, 'Review': Review}
             with open(self.__file_path) as fil:
                 dic = json.load(fil)
                 for k, v in dic.items():
-                    FileStorage.__objects[k] = BaseModel(**v)
+                    keys_split = k.split('.')
+                    FileStorage.__objects[k] = class_names[keys_split[0]](**v)
