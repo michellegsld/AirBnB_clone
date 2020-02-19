@@ -13,7 +13,7 @@ In this second flowchart, the logic for the console is shown:
 
 ![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/Screen%20Shot%202020-02-19%20at%206.20.15%20PM.png "Console Flowchart")
 
-Here, the serialization and deserialization process is shown through the use of strings and JSON files.
+Here, the deserialization process is shown through the use of strings to JSON files. This conversion to JSON allows the dictionary to be more easily used in a myriad of ways.
 
 ## Installation
 ```
@@ -32,8 +32,8 @@ Returns: ** no instance found **
 (hbnb) <classname>.all()
 Returns: All instances of a given class
 
-(hbnb) help command
-Returns: Information on command
+(hbnb) help <command>
+Returns: Information on <command>
 
 (hbnb) quit
 Returns: Exits the program
