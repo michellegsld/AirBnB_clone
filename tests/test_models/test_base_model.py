@@ -75,3 +75,11 @@ class TestBaseModel(unittest.TestCase):
         """
         inst = self.test_class()
         self.assertIsInstance(inst.to_dict(), dict)
+
+    def test_save(self):
+        """
+        Tests if the object's save() works correctly
+        """
+        inst = self.test_class()
+        inst.save()
+        self.assertTrue(os.path.exists("file.json"))
