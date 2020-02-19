@@ -31,14 +31,14 @@ user.py | Child class of BaseModel to define HBnB *user* with email, password an
 Names | Descriptions
 ----- | -------------------
 test_models | *Directory* holds all the following test files
-test_engine | *Directory*
-test_amenity.py |
-test_base_model.py |
-test_city.py |
-test_place.py |
-test_review.py |
-test_state.py |
-test_user.py |
+test_engine | *Directory* containing test_file_storage.py
+test_amenity.py | Tests for the proper use of amenity specifications
+test_base_model.py | Tests for proper use of ParentClass within inheritence
+test_city.py | Tests for the proper use of city specifications
+test_place.py | Tests for the proper use of place specifications
+test_review.py | Tests for the proper use of review specifications
+test_state.py | Tests for the proper use of state specifications
+test_user.py | Tests for the proper use of user specifications
 
 #### Authors
 Written for HolbertonNHV by Michelle Giraldo and Kathleen McKiernan
