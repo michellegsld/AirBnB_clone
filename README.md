@@ -11,7 +11,7 @@ This is the first step of seven cumulative projects. In the below flowchart, the
 With all of this in mind, the project is given several specifications to follow. The first point to keep in mind is the projects need to work on both interactive and non-interactive mode, with the major difference being in interactive mode, the console reads commands input by the user. The second is the flow of inheritence between the ParentClass and all inheriting classes. If the structure and use of \_\_init\_\_.py files is not used, the console will not run properly.
 In this second flowchart, the logic for the console is shown:
 
-![alt text]( "Console Flowchart")
+![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/Screen%20Shot%202020-02-19%20at%206.16.50%20PM.png "Console Flowchart")
 
 Here, the serialization and deserialization process is shown through the use of strings and JSON files.
 
