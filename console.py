@@ -28,6 +28,32 @@ class HBNBCommand(cmd.Cmd):
                    'City': City, 'Amenity': Amenity, 'Place': Place,
                    'Review': Review}
 
+    def default(self, line):
+        """
+        """
+        command_names = {'quit': self.do_quit, 'EOF': self.do_EOF,
+                         'create': self.do_create, 'show': self.do_show,
+                         'destroy': self.do_destroy, 'all': self.do_all,
+                         'update': self.do_update, 'count': self.do_count}
+        table_change = {44: 32, 40: 32, 41: 32, 46: 32}
+        new_line = line.translate(table_change)
+        new_line = new_line.replace("  ", " ")
+        new_line = new_line.strip(" ")
+        split_line = new_line.split(" ")
+        for i in range(len(split_line)):
+            if "\"" in split_line[i]:
+                split_line[i] = split_line[i].strip('\"')
+        if len(split_line) > 1 and split_line[1] in command_names:
+            arg = ""
+            for i in range(len(split_line)):
+                if i != 1:
+                    arg = arg + (split_line[i])
+                    if i != (len(split_line) - 1):
+                        arg = arg + " "
+            command_names[split_line[1]](arg)
+        else:
+            return cmd.Cmd.default(self, line)
+
     def emptyline(self):
         """
         Do nothing if a blank line is entered
@@ -253,7 +279,7 @@ by adding or updating attribute\n")
         elif len(list_arg) is 3:
             print("** value missing **")
         else:
-            value = list_arg[3][1:-1]
+            value = list_arg[3].strip("\"")
             if list_arg[0] is "Place":
                 if list_arg[2] in float_list:
                     value = float(value)
@@ -261,6 +287,25 @@ by adding or updating attribute\n")
                     value = int(value)
             ((obj_dict[key]).__dict__).update({list_arg[2]: value})
             obj_dict[key].save()
+
+    def help_count(self):
+        """
+        Explains the count command
+        """
+
+    def do_count(self, arg):
+        """
+        Counts how many instances there are of a certain class
+        """
+        obj_dict = storage.all()
+        count = 0
+        if arg in class_names:
+            for k in obj_dict.keys():
+                dict_key = key.split(".")
+                if arg is dict_key:
+                    count += 1
+
+        print(count)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
