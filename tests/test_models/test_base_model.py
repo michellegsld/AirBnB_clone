@@ -34,6 +34,13 @@ class TestBaseModel(unittest.TestCase):
         if os.path.exists("file.json"):
             os.remove("file.json")
 
+    def test_class_type(self):
+        """
+        Tests what the class type of an instance is
+        """
+        inst = self.test_class()
+        self.assertIsInstance(inst, self.test_class)
+
     def test_id(self):
         """
         Tests if the id was casted properly
@@ -54,3 +61,17 @@ class TestBaseModel(unittest.TestCase):
         """
         inst = self.test_class()
         self.assertIsInstance((inst).updated_at, datetime)
+
+    def test_str(self):
+        """
+        Tests if the object's __str__ is of correct type
+        """
+        inst = self.test_class()
+        self.assertIsInstance(str(inst), str)
+
+    def test_to_dict(self):
+        """
+        Tests if the object's to_dict() is of correct type
+        """
+        inst = self.test_class()
+        self.assertIsInstance(inst.to_dict(), dict)
