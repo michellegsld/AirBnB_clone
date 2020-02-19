@@ -83,3 +83,11 @@ class TestBaseModel(unittest.TestCase):
         inst = self.test_class()
         inst.save()
         self.assertTrue(os.path.exists("file.json"))
+
+    def test_kwargs(self):
+        """
+        Tests if the object's instantiation with kwargs works correctly
+        """
+        inst1 = self.test_class()
+        inst2 = self.test_class(inst1.to_dict())
+        self.assertTrue(inst1.id, inst2.id)
