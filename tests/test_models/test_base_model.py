@@ -90,4 +90,4 @@ class TestBaseModel(unittest.TestCase):
         """
         inst1 = self.test_class()
         inst2 = self.test_class(inst1.to_dict())
-        self.assertTrue(inst1.id, inst2.id)
+        self.assertTrue(inst1.created_at, inst2.created_at)
