@@ -7,7 +7,6 @@ In this directory, students create a collection of python test files in an initi
 
 ## Project Directories and Files
 
-#### In **tests** directory:
 Names | Descriptions
 ----- | -------------------
 test_models | *Directory* containing all unittest files
