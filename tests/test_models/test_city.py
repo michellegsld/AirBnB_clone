@@ -23,3 +23,17 @@ class TestCity(TestBaseModel):
         self.test_class = City
         self.test_name = "City"
         super().__init__(*args, **kwargs)
+
+    def test_city_attr_name(self):
+        """
+        Tests if the name attribute is a string
+        """
+        inst = City()
+        self.assertIsInstance(inst.name, str)
+
+    def test_city_attr_state_id(self):
+        """
+        Tests if the state_id attribute is a string
+        """
+        inst = City()
+        self.assertIsInstance(inst.state_id, str)

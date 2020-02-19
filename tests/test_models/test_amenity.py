@@ -23,3 +23,10 @@ class TestAmenity(TestBaseModel):
         self.test_class = Amenity
         self.test_name = "Amenity"
         super().__init__(*args, **kwargs)
+
+    def test_amenity_attr_name(self):
+        """
+        Tests if the name attribute is a string
+        """
+        inst = Amenity()
+        self.assertIsInstance(inst.name, str)

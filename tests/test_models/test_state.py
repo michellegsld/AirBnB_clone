@@ -23,3 +23,10 @@ class TestState(TestBaseModel):
         self.test_class = State
         self.test_name = "State"
         super().__init__(*args, **kwargs)
+
+    def test_state_attr_name(self):
+        """
+        Tests if the name attribute is a string
+        """
+        inst = State()
+        self.assertIsInstance(inst.name, str)

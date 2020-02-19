@@ -23,3 +23,24 @@ class TestReview(TestBaseModel):
         self.test_class = Review
         self.test_name = "Review"
         super().__init__(*args, **kwargs)
+
+    def test_review_attr_place_id(self):
+        """
+        Tests if the place_id attribute is a string
+        """
+        inst = Review()
+        self.assertIsInstance(inst.place_id, str)
+
+    def test_review_attr_user_id(self):
+        """
+        Tests if the user_id attribute is a string
+        """
+        inst = Review()
+        self.assertIsInstance(inst.user_id, str)
+
+    def test_review_attr_text(self):
+        """
+        Tests if the text attribute is a string
+        """
+        inst = Review()
+        self.assertIsInstance(inst.text, str)

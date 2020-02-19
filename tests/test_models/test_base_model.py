@@ -6,6 +6,7 @@ import unittest
 from models.base_model import BaseModel
 from uuid import UUID
 from datetime import datetime
+import os.path
 
 
 class TestBaseModel(unittest.TestCase):
@@ -25,6 +26,13 @@ class TestBaseModel(unittest.TestCase):
         super().__init__(*args, **kwargs)
         self.test_class = BaseModel
         self.test_name = "BaseModel"
+
+    def tearDown(self):
+        """
+        To remove "file.json" each time
+        """
+        if os.path.exists("file.json"):
+            os.remove("file.json")
 
     def test_id(self):
         """
