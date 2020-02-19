@@ -30,6 +30,7 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         """
+        Accepts the other way of calling commands, ex: <class name>.<command>()
         """
         command_names = {'quit': self.do_quit, 'EOF': self.do_EOF,
                          'create': self.do_create, 'show': self.do_show,
@@ -292,19 +293,20 @@ by adding or updating attribute\n")
         """
         Explains the count command
         """
+        print("Prints the number of instances of a class\n")
 
     def do_count(self, arg):
         """
         Counts how many instances there are of a certain class
         """
+        arg = arg.strip()
         obj_dict = storage.all()
         count = 0
-        if arg in class_names:
-            for k in obj_dict.keys():
-                dict_key = key.split(".")
-                if arg is dict_key:
-                    count += 1
-
+        if arg in HBNBCommand.class_names:
+            for key in obj_dict.keys():
+                dict_keys = key.split(".")
+                if arg == dict_keys[0]:
+                    count = count + 1
         print(count)
 
 if __name__ == '__main__':
