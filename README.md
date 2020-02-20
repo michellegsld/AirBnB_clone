@@ -6,14 +6,14 @@
 In this project, students create a command interpreter to manage their AirBnB projects. This is done through a simple flow of th serialization and deserialization processes through instantiation, dictionaries, JSON strings, and files. This results in an organized set of classes used for items such as *USER*, *STATE*, *CITY*, *PLACE*, all inherited from the project's *BaseModel*.
 This is the first step of seven cumulative projects. In the below flowchart, the overall framework for the project is seen. For this current project, we will only be worrying about the console and utilizing JSON files to use and create information.
 
-![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/Screen%20Shot%202020-02-19%20at%204.40.08%20PM.png "AirBnB Flowchart")
+![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/HBnB_Flowchart.png "AirBnB Flowchart")
 
 With all of this in mind, the project is given several specifications to follow. The first point to keep in mind is the projects need to work on both interactive and non-interactive mode, with the major difference being in interactive mode, the console reads commands input by the user. The second is the flow of inheritence between the ParentClass and all inheriting classes. If the structure and use of \_\_init\_\_.py files is not used, the console will not run properly.
 In this second flowchart, the logic for the console is shown:
 
-![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/Screen%20Shot%202020-02-19%20at%206.20.15%20PM.png "Console Flowchart")
+![alt text](https://github.com/michellegsld/AirBnB_clone/blob/master/Console_Flowchart.png "Console Flowchart")
 
-Here, the deserialization process is shown through the use of strings to JSON files. This conversion to JSON allows the dictionary to be more easily used in a myriad of ways.
+Here, the serialization and deserialization process is shown through the use of strings and JSON files. The conversion to JSON allows the dictionary to be more easily used in several different implementations. The input string is first serialized by delimiters such as quotes, colons, spaces and in certain instances, such as definining an object within a dictionary, a period. This process allows the string to be broken down from the parent class to the child classes, which in turn uses this information to define elements of those given classes. Once defined, the JSON file can be deserialized back into instances to recreate the string in a saved instance.
 
 ## Installation
 ```
@@ -41,14 +41,14 @@ Returns: Exits the program
 
 ## Project Directories and Files
 
-#### In **AirBnB_clone** directory:
+#### In AirBnB_clone directory:
 Names | Descriptions
 ----- | -------------------
 models | Directory containing
 tests | Directory containing unittesting for this project
 console.py | Python file containing the structure for the console's operations
 
-#### In **models** directory:
+#### In models directory:
 Names | Descriptions
 ----- | -------------------
 engine | *Directory* containing file_storage.py
@@ -60,7 +60,7 @@ review.py | Child class of BaseModel to define HBnB *review* with place, user an
 state.py | Child class of BaseModel to define HBnB *states*
 user.py | Child class of BaseModel to define HBnB *user* with email, password and name
 
-#### In **tests** directory:
+#### In tests directory:
 Names | Descriptions
 ----- | -------------------
 test_models | *Directory* holds all the following test files
