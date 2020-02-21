@@ -67,14 +67,23 @@ class TestBaseModel(unittest.TestCase):
         Tests if the object's __str__ is of correct type
         """
         inst = self.test_class()
+        c = str(type(inst).__name__)
+        i = str(inst.id)
+        d = str(inst.__dict__)
+        str_i = "[" + c + "] " + "(" + i + ") " + d
         self.assertIsInstance(str(inst), str)
+        self.assertEqual(str(inst), str_i)
+
 
     def test_to_dict(self):
         """
         Tests if the object's to_dict() is of correct type
+        Tests if object's to_dict() is equal to itself
         """
         inst = self.test_class()
+        dict_i = inst.to_dict()
         self.assertIsInstance(inst.to_dict(), dict)
+        self.assertEqual(inst.to_dict(), dict_i)
 
     def test_save(self):
         """
